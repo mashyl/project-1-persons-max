@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import './App.css';
 import Person from './Person/Person';
 
@@ -33,17 +32,6 @@ class App extends Component {
   render() {
     let persons = null;
 
-    const StyledBtn = styled.button`
-      background-color: green;
-      color: white;
-      cursor: pointer;
-      
-      &:hover {
-        background-color: lightgreen;
-        color: black
-      }
-    `;
-
     if (this.state.personsShow) {
       // Object.assign(btnStyle, {backgroundColor: 'red'});
       // Object.assign(btnStyle[":hover"], {backgroundColor: 'salmon'})
@@ -65,7 +53,7 @@ class App extends Component {
     return (
         <div className="App">
           <h1>Hi there.</h1>
-          <StyledBtn onClick={this.togglePersons}>Toggle Persons</StyledBtn>
+          <button className='button' alt={this.state.personsShow} onClick={this.togglePersons}>Toggle Persons</button>
           { persons }
         </div>
     );
