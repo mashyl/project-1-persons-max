@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Radium from 'radium';
+import styled from 'styled-components';
 import './App.css';
 import Person from './Person/Person';
 
@@ -33,19 +33,20 @@ class App extends Component {
   render() {
     let persons = null;
 
-    let btnStyle = {
-      backgroundColor: 'green',
-      color: 'white',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
+    const StyledBtn = styled.button`
+      background-color: green;
+      color: white;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: lightgreen;
+        color: black
       }
-    }
+    `;
 
     if (this.state.personsShow) {
-      Object.assign(btnStyle, {backgroundColor: 'red'});
-      Object.assign(btnStyle[":hover"], {backgroundColor: 'salmon'})
+      // Object.assign(btnStyle, {backgroundColor: 'red'});
+      // Object.assign(btnStyle[":hover"], {backgroundColor: 'salmon'})
 
       persons = (
        <div>
@@ -62,13 +63,13 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <h1>Hi there.</h1>
-        <button style={btnStyle} onClick={this.togglePersons}>Toggle Persons</button>
-        { persons }
-      </div>
+        <div className="App">
+          <h1>Hi there.</h1>
+          <StyledBtn onClick={this.togglePersons}>Toggle Persons</StyledBtn>
+          { persons }
+        </div>
     );
   }
 }
 
-export default Radium(App);
+export default App;
